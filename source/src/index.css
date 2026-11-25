@@ -1,0 +1,240 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==========================================================================
+   Tepekkur Buliqi — Semantic Theme System (4 Presets across 3 Aesthetics)
+   ========================================================================== */
+
+:root,
+[data-theme="obsidian-dark"] {
+  --bg-canvas: #1c1c21;
+  --bg-sidebar: #141418;
+  --bg-surface: #23232a;
+  --bg-elevated: #2a2a33;
+  --bg-hover: #2d2d37;
+  --bg-active: #343045;
+  --text-primary: #ececf2;
+  --text-secondary: #b9b9c9;
+  --text-muted: #7f7f94;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.15);
+  --accent: #8b5cf6;
+  --accent-hover: #7c3aed;
+  --accent-soft: rgba(139, 92, 246, 0.16);
+  --accent-text: #c4b5fd;
+  --code-bg: #121216;
+  --link-color: #a78bfa;
+  --link-unresolved: #8478a8;
+  --tag-color: #38bdf8;
+  --danger: #f87171;
+  --success: #4ade80;
+  --graph-bg: #16161b;
+  --graph-node: #9f7aea;
+  --graph-node-active: #c4b5fd;
+  --graph-node-unresolved: #525264;
+  --graph-edge: rgba(167, 139, 250, 0.24);
+  --graph-edge-active: rgba(196, 181, 253, 0.85);
+  --graph-label: #dcdce6;
+  color-scheme: dark;
+}
+
+[data-theme="modern-dark"] {
+  --bg-canvas: #0f172a;
+  --bg-sidebar: #0b1120;
+  --bg-surface: #162033;
+  --bg-elevated: #1e293b;
+  --bg-hover: #1f2d42;
+  --bg-active: #1d3557;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #7c8ea6;
+  --border-subtle: rgba(148, 163, 184, 0.13);
+  --border-strong: rgba(148, 163, 184, 0.24);
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-soft: rgba(59, 130, 246, 0.16);
+  --accent-text: #93c5fd;
+  --code-bg: #080e1a;
+  --link-color: #60a5fa;
+  --link-unresolved: #64748b;
+  --tag-color: #2dd4bf;
+  --danger: #f87171;
+  --success: #34d399;
+  --graph-bg: #0b1120;
+  --graph-node: #60a5fa;
+  --graph-node-active: #93c5fd;
+  --graph-node-unresolved: #475569;
+  --graph-edge: rgba(148, 163, 184, 0.22);
+  --graph-edge-active: rgba(96, 165, 250, 0.88);
+  --graph-label: #e2e8f0;
+  color-scheme: dark;
+}
+
+[data-theme="modern-light"] {
+  --bg-canvas: #ffffff;
+  --bg-sidebar: #f6f7f9;
+  --bg-surface: #f2f4f7;
+  --bg-elevated: #ffffff;
+  --bg-hover: #eaedf2;
+  --bg-active: #e3ecfc;
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --border-subtle: rgba(17, 24, 39, 0.09);
+  --border-strong: rgba(17, 24, 39, 0.16);
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-soft: rgba(37, 99, 235, 0.1);
+  --accent-text: #1d4ed8;
+  --code-bg: #f3f5f8;
+  --link-color: #2563eb;
+  --link-unresolved: #8a94a6;
+  --tag-color: #0d9488;
+  --danger: #dc2626;
+  --success: #16a34a;
+  --graph-bg: #f8fafc;
+  --graph-node: #2563eb;
+  --graph-node-active: #1d4ed8;
+  --graph-node-unresolved: #94a3b8;
+  --graph-edge: rgba(100, 116, 139, 0.24);
+  --graph-edge-active: rgba(37, 99, 235, 0.85);
+  --graph-label: #1e293b;
+  color-scheme: light;
+}
+
+[data-theme="paper-light"] {
+  --bg-canvas: #fbf8f1;
+  --bg-sidebar: #f3ede1;
+  --bg-surface: #ede6d7;
+  --bg-elevated: #fdfaf4;
+  --bg-hover: #e6decd;
+  --bg-active: #e2d4be;
+  --text-primary: #231e19;
+  --text-secondary: #4a4036;
+  --text-muted: #786b5d;
+  --border-subtle: rgba(45, 34, 22, 0.1);
+  --border-strong: rgba(45, 34, 22, 0.2);
+  --accent: #8f4f24;
+  --accent-hover: #753f1b;
+  --accent-soft: rgba(143, 79, 36, 0.12);
+  --accent-text: #7c421c;
+  --code-bg: #f0e9db;
+  --link-color: #8f4f24;
+  --link-unresolved: #9d8b78;
+  --tag-color: #3f6a52;
+  --danger: #b91c1c;
+  --success: #2f6f44;
+  --graph-bg: #f6f1e6;
+  --graph-node: #8f4f24;
+  --graph-node-active: #683614;
+  --graph-node-unresolved: #a89988;
+  --graph-edge: rgba(120, 107, 93, 0.26);
+  --graph-edge-active: rgba(143, 79, 36, 0.85);
+  --graph-label: #2c241d;
+  color-scheme: light;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: 'UKIJ Tuz', 'ALKATIP Basma', 'Uyghur Pashto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    border-color: var(--border-subtle);
+  }
+}
+
+.font-uyghur-prose {
+  font-family: 'UKIJ Tuz', 'ALKATIP Basma', 'Uyghur Pashto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, sans-serif;
+}
+
+.font-uyghur-sans {
+  font-family: 'ALKATIP Basma', 'UKIJ Tuz', 'Uyghur Pashto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, sans-serif;
+}
+
+.uyghur-paragraph {
+  text-align: justify;
+  text-justify: inter-word;
+  text-indent: 1.75em;
+}
+
+.font-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Accessible focus ring */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Clean Uyghur RTL PDF Export (Print Stylesheet) */
+@media print {
+  html,
+  body,
+  #root {
+    background: #ffffff !important;
+    color: #111111 !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+}

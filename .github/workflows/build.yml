@@ -1,0 +1,33 @@
+name: YARQIN nodeweb build
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install packages
+        working-directory: source
+        run: npm ci || npm install
+      - name: Build web project
+        working-directory: source
+        run: npm run build
+      - name: Package web output
+        working-directory: source
+        run: |
+          if [ -d dist ]; then cd dist; elif [ -d build ]; then cd build; elif [ -d out ]; then cd out; else echo "No dist/build/out folder"; exit 1; fi
+          zip -r ../my-app-web-build.zip .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: my-app-web-build
+          path: source/my-app-web-build.zip
+          if-no-files-found: error
+          retention-days: 14

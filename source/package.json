@@ -1,0 +1,48 @@
+{
+  "name": "tepekkur-buliqi",
+  "private": true,
+  "version": "1.0.0",
+  "description": "تەپەككۇر بۇلىقى — ئۇيغۇرچە يەرلىك بىلىم ۋە خاتىرە ئامبىرى",
+  "author": "تەپەككۇر بۇلىقى",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "start": "node server.ts",
+    "build": "vite build",
+    "preview": "vite preview",
+    "clean": "rm -rf dist release server.js",
+    "lint": "tsc --noEmit",
+    "electron:start": "vite build && electron .",
+    "dist:win": "vite build && electron-builder --win nsis --config electron-builder.json",
+    "dist:portable": "vite build && electron-builder --win portable --config electron-builder.json",
+    "dist:mac": "vite build && electron-builder --mac dmg --config electron-builder.json"
+  },
+  "dependencies": {
+    "@google/genai": "^3.6.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.1.1",
+    "docx": "^9.16.0",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "lucide-react": "^0.546.0",
+    "mammoth": "^1.13.0",
+    "motion": "^12.23.24",
+    "pdfjs-dist": "^6.5.438",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "vite": "^8.3.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.4.21",
+    "esbuild": "^0.25.0",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.21.0",
+    "typescript": "^7.0.2",
+    "vite-plugin-pwa": "^2.0.0"
+  }
+}

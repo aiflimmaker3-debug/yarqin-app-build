@@ -1,0 +1,46 @@
+{
+  "appId": "org.tepekkur.buliqi",
+  "productName": "Tepekkur Buliqi",
+  "copyright": "تەپەككۇر بۇلىقى",
+  "directories": {
+    "buildResources": "build",
+    "output": "release"
+  },
+  "files": [
+    "dist/**/*",
+    "electron/**/*",
+    "build/icon.ico",
+    "build/icon.png",
+    "package.json"
+  ],
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "build/icon.ico",
+    "artifactName": "Tepekkur-Buliqi-Setup-${version}.exe"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "تەپەككۇر بۇلىقى",
+    "installerIcon": "build/icon.ico",
+    "uninstallerIcon": "build/icon.ico",
+    "installerHeaderIcon": "build/icon.ico",
+    "deleteAppDataOnUninstall": false
+  },
+  "portable": {
+    "artifactName": "Tepekkur-Buliqi-Portable-${version}.exe"
+  },
+  "mac": {
+    "icon": "build/icon.png",
+    "category": "public.app-category.productivity",
+    "target": ["dmg"]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "تەپەككۇر بۇلىقى — Tepekkur Buliqi",
+  "description": "ئۇيغۇرچە يەرلىك بىلىم ۋە خاتىرە باشقۇرۇش سىستېمىسى — RTL Markdown تەھرىرلىگۈچ، بىلىم تورى گرافىكى ۋە سۈنئىي ئەقىل ياردەمچىسى.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
